@@ -6,6 +6,7 @@ import History from "../Data/history.json";
 import Romance from "../Data/romance.json";
 import Scifi from "../Data/scifi.json";
 import SingleBook from "./SingleBook"
+import {fetchBooks} from "../utils"
 
 
 let bookCategories = ["fantasy", "horror", "history", "romance", "scifi"];
@@ -19,14 +20,20 @@ let books = {
 
 class SpecialReleases extends React.Component {
   state = {
-    books: Fantasy.slice(0, 12),
+    books: [],
     categorySelected: "fantasy",
   };
+
+  componentDidMount = async () => {
+const books =  await fetchBooks()
+this.setState({books:books})
+  }
+
 
   handleDropdownChange = (category) => {
     this.setState({
       books: books[category],
-      categorySelected: category,
+      categorySelected: books[category],
     });
   };
 

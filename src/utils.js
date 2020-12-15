@@ -7,7 +7,7 @@ const {
 
 export const fetchBooks = async () => {
     try {
-      const res = await fetch(, {
+      const res = await fetch("http://localhost:3006/books", {
         headers: {
           Authorization: "Bearer " ,
         },
