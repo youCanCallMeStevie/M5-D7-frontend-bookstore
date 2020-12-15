@@ -33,15 +33,14 @@ this.setState({books:books})
   handleDropdownChange = (category) => {
     this.setState({
       books: books[category],
-      categorySelected: books[category],
+      categorySelected: category,
     });
   };
 
   handleSearchQuery = (searchQuery) => {
-    
     if (searchQuery) {
         console.log(searchQuery)
-      let filteredBooks = Fantasy.filter((book) =>
+      let filteredBooks = books.filter((book) =>
         book.title.toLowerCase().includes(searchQuery.toLowerCase())
       );
       this.setState({ books: filteredBooks });
