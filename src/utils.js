@@ -5,9 +5,9 @@ const {
   REACT_APP_POSTS,
 } = process.env;
 
-export const fetchBooks = async () => {
+export const fetchBooks = async (queryKey, queryValue) => {
   try {
-    const res = await fetch(`${process.env.REACT_APP_BE_URL}/books` );
+    const res = await fetch(`${process.env.REACT_APP_BE_URL}/books?${queryKey}=${queryValue}` );
     const books = await res.json();
     if (res.ok) {
       console.log("all good");

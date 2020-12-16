@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Button } from "react-bootstrap";
+import { Card, Col, Button, Alert } from "react-bootstrap";
 import MyBadge from "./MyBadge.jsx";
 import {
   Row,
@@ -9,22 +9,22 @@ import {
   FormControl,
   DropdownButton,
 } from "react-bootstrap";
-import Fantasy from "../Data/fantasy.json";
-import Horror from "../Data/horror.json";
-import History from "../Data/history.json";
-import Romance from "../Data/romance.json";
-import Scifi from "../Data/scifi.json";
+// import Fantasy from "../Data/fantasy.json";
+// import Horror from "../Data/horror.json";
+// import History from "../Data/history.json";
+// import Romance from "../Data/romance.json";
+// import Scifi from "../Data/scifi.json";
 import SingleBook from "./SingleBook";
 import { fetchBooks } from "../utils";
 
 let bookCategories = ["fantasy", "horror", "history", "romance", "scifi"];
-let books = {
-  Fantasy,
-  Horror,
-  History,
-  Romance,
-  Scifi,
-};
+// let books = {
+//   Fantasy,
+//   Horror,
+//   History,
+//   Romance,
+//   Scifi,
+// };
 
 class SpecialReleases extends React.Component {
   state = {
@@ -59,7 +59,7 @@ class SpecialReleases extends React.Component {
       this.setState({ books: filteredBooks });
       console.log(filteredBooks);
     } else {
-      this.setState({ books: Fantasy });
+      <Alert variant="primary">No Books mathch your selected genre nor title search</Alert>
     }
   };
   render() {
